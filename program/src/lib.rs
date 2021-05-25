@@ -5,7 +5,7 @@ entrypoint!(process_instruction);
 pub fn process_instruction(
     _program_id: &Pubkey,
     accounts: &[AccountInfo],
-    _instruction_data: &[u8]
+    _instruction_data: &[u8],
 ) -> ProgramResult {
     msg!("transfer lamports started");
     let account_info_iter = &mut accounts.iter();
@@ -20,8 +20,8 @@ pub fn process_instruction(
     // **destination_info.try_borrow_mut_lamports()? += 5;
     // <-- it doesn't work! Use invoke()
 
-    let res = invoke(&system_instruction::transfer(alice.key, bob.key, 777), &[alice.clone(), bob.clone()])?;
-    msg!("transfer result: {:?}", res);
+    invoke(&system_instruction::transfer(alice.key, bob.key, 777), &[alice.clone(), bob.clone()])?;
+    msg!("transfer done");
 
     Ok(())
 }
