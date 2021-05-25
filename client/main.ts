@@ -1,4 +1,4 @@
-import {Connection, Keypair, sendAndConfirmTransaction, Transaction, TransactionInstruction} from "@solana/web3.js"
+import {Connection, Keypair, sendAndConfirmTransaction, SystemProgram, Transaction, TransactionInstruction} from "@solana/web3.js"
 import {readFileSync} from "fs"
 
 function readKeypairFromPath(path: string) {
@@ -15,6 +15,7 @@ async function main() {
         keys: [
             {pubkey: aliceKeypair.publicKey, isSigner: true, isWritable: true},
             {pubkey: bobKeypair.publicKey, isSigner: false, isWritable: true},
+            {pubkey: SystemProgram.programId, isSigner:false, isWritable: false},
         ],
         programId: programKeypair.publicKey,
         data: Buffer.alloc(0),
