@@ -7,9 +7,9 @@ function readKeypairFromPath(path: string) {
 }
 
 async function main() {
-    const programKeypair = readKeypairFromPath(__dirname + "/../keys/program.json")
-    const aliceKeypair = readKeypairFromPath(__dirname + "/../keys/alice.json")
-    const bobKeypair = readKeypairFromPath(__dirname + "/../keys/bob.json")
+    const programKeypair = readKeypairFromPath(__dirname + "/../../keys/program.json")
+    const aliceKeypair = readKeypairFromPath(__dirname + "/../../keys/alice.json")
+    const bobKeypair = readKeypairFromPath(__dirname + "/../../keys/bob.json")
     const connection = new Connection("http://localhost:8899")
     const ix = new TransactionInstruction({
         keys: [

@@ -14,5 +14,8 @@ airdrop:
 	solana airdrop 1 9C8ARBpAqcmoDfqZTDtvB1JgZC7gjvcq48xRJoR7Wpeq -u localhost
 
 
-client:
-	cd client; ./node_modules/.bin/ts-node main.ts
+cli:
+	cd client/cli; ./node_modules/.bin/ts-node main.ts
+
+browser:
+	cd client/browser; npm start
